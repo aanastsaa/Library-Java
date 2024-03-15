@@ -1,0 +1,215 @@
+<!-- books.html -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Books</h1>
+        </div>
+    </div>
+
+
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                <div class="col">
+                    <div class="card">
+                        <img src="https://miro.medium.com/v2/resize:fit:636/format:webp/0*r5KP2j7X5kdnRApn.jpeg" class="card-img-top" alt="Book Image" style="max-width: 500px; max-height: 500px;">
+                        <div class="card-body">
+                            <h5 class="card-title">The Hunger Games</h5>
+                            <p class="card-text"> by Suzanne Collins</p>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col">
+                    <div class="card">
+                        <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/0*ikq7HRXcyd68tmg0.jpeg" class="card-img-top" alt="Book Image" style="max-width: 500px; max-height: 500px;">
+                        <div class="card-body">
+                            <h5 class="card-title">The Lion, the Witch and the Wardrobe </h5>
+                            <p class="card-text"> by C.S. Lewis </p>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal2">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/0*eNDpCo6Ws95u7k-d.jpeg" class="card-img-top" alt="Book Image" style="max-width: 500px; max-height: 500px;">
+                        <div class="card-body">
+                            <h5 class="card-title">The Catcher in the Rye by J. D. Salinger </h5>
+                            <p class="card-text"> by J. D. Salinger </p>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal3">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat the above card block for each book -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="bookModal1" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookModalLabel">Book Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Place book details here -->
+                    <p>Book Description</p>
+                    <p>Author: Suzanne Collins</p>
+                    <p>The Hunger Games is a modern classic by Suzanne Collins that was first published in 2008.
+                        This best-selling book is set in a post-apocalyptic world and follows the story of Katniss Everdeen,
+                        a young girl forced to compete in a televised fight to the death.
+                        The Hunger Games is the first book in a trilogy that also includes Catching Fire and Mockingjay.
+                        The novels have been extremely popular, with over 65 million copies sold worldwide, and have been translated
+                        into more than 50 languages. The books have also been adapted into a successful film franchise, with four films
+                        released between 2012 and 2015.
+                    </p>
+                    <form action="/books" method="post">
+                        <input type="hidden" name="id" value="1">
+                        <input type="hidden" name="title" value="The Hunger Games">
+                        <input type="hidden" name="description" value="Description of The Hunger Games">
+                        <input type="hidden" name="imageUrl" value="https://miro.medium.com/v2/resize:fit:636/format:webp/0*r5KP2j7X5kdnRApn.jpeg">
+                        <input type="hidden" name="author" value="Suzanne Collins">
+                        <div class="mb-3">
+                            <label for="start_date1" class="form-label">Start Date</label>
+                            <input type="date" name="dateFrom" class="form-control" id="start_date1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="end_date1" class="form-label">End Date</label>
+                            <input type="date" name="dateTo" class="form-control" id="end_date1">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <!-- Button to confirm reservation -->
+                            <button type="submit" class="btn btn-primary" >Confirm Reservation</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="bookModal2" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookModalLabel2">Book Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Place book details here -->
+                    <p>Book Description</p>
+                    <p>Author: C.S. Lewis</p>
+                    <p>When the Pevensie children — Peter, Susan, Edmund, and Lucy — are sent away from London
+                        during the war to stay in the countryside with an old professor, they have no idea of the adventures
+                        that await them. One day, while exploring the professor’s huge house, they discover a wardrobe that leads
+                        away from real life to a magical land called Narnia. Narnia is under a spell of eternal winter.
+                        With the help of Aslan, the great lion and true ruler of Narnia, they overcome many obstacles and eventually triumph over evil.
+                    </p>
+                    <form action="/books" method="post">
+                        <input type="hidden" name="id" value="2">
+                        <input type="hidden" name="title" value="The Lion, the Witch and the Wardrobe">
+                        <input type="hidden" name="description" value="Description of The Lion, the Witch and the Wardrobe">
+                        <input type="hidden" name="imageUrl" value="https://miro.medium.com/v2/resize:fit:640/format:webp/0*ikq7HRXcyd68tmg0.jpeg">
+                        <input type="hidden" name="author" value="C.S. Lewis">
+                        <div class="mb-3">
+                            <label for="start_date2" class="form-label">Start Date</label>
+                            <input type="date" name="dateFrom" class="form-control" id="start_date2">
+                        </div>
+                        <div class="mb-3">
+                            <label for="end_date2" class="form-label">End Date</label>
+                            <input type="date" name="dateTo" class="form-control" id="end_date2">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <!-- Button to confirm reservation -->
+                            <button type="submit" class="btn btn-primary" >Confirm Reservation</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="bookModal3" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookModalLabel3">Book Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Place book details here -->
+                    <p>Book Description</p>
+                    <p>Author: J. D. Salinger</p>
+                    <p>The Catcher in the Rye is often lauded as one of the greatest English reading books for beginners.
+                        This best-selling book follows Holden Caulfield, a teenager from New York City when he is expelled from
+                        his prestigious boarding school and becomes a wanderer in America. Throughout his journey,
+                        Holden encounters a variety of characters, each of whom represents a different facet of society.
+                        The novel explores themes of innocence, corruption, and alienation, and it has had a profound impact
+                        on generations of readers. Despite its controversial subject matter, The Catcher in the Rye is a classic piece of American literature.
+                    </p>
+                    <form action="/books" method="post">
+                        <input type="hidden" name="id" value="3">
+                        <input type="hidden" name="title" value="The Catcher in the Rye">
+                        <input type="hidden" name="description" value="Description of The Catcher in the Rye">
+                        <input type="hidden" name="imageUrl" value="https://miro.medium.com/v2/resize:fit:828/format:webp/0*eNDpCo6Ws95u7k-d.jpeg">
+                        <input type="hidden" name="author" value="J. D. Salinge">
+                        <div class="mb-3">
+                            <label for="start_date3" class="form-label">Start Date</label>
+                            <input type="date" name="dateFrom" class="form-control" id="start_date3">
+                        </div>
+                        <div class="mb-3">
+                            <label for="end_date3" class="form-label">End Date</label>
+                            <input type="date" name="dateTo" class="form-control" id="end_date3">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <!-- Button to confirm reservation -->
+                            <button type="submit" class="btn btn-primary" >Confirm Reservation</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header th:insert="blocks/footer :: footer"></header>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
